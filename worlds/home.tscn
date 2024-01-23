@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwybq0k6csc3e"]
+[gd_scene load_steps=6 format=3 uid="uid://bwybq0k6csc3e"]
 
 [ext_resource type="TileSet" uid="uid://ddm2mg28g1n2l" path="res://assets/Gmud_Tile.tres" id="1_yscwe"]
+[ext_resource type="PackedScene" uid="uid://bwbl7cgmrymwr" path="res://objects/teleporter.tscn" id="2_it8uc"]
 [ext_resource type="PackedScene" uid="uid://wbdtouolyvih" path="res://player/player.tscn" id="2_oku0s"]
+[ext_resource type="Script" path="res://objects/Objects.gd" id="3_66gbk"]
 [ext_resource type="Script" path="res://player/player.gd" id="3_a24tm"]
 
 [node name="Home" type="Node2D"]
@@ -23,9 +25,31 @@ layer_3/tile_data = PackedInt32Array(720909, 0, 0, 720908, 0, 0, 720907, 0, 0, 7
 layer_4/name = "Floor"
 layer_4/tile_data = PackedInt32Array(262150, 262144, 0, 327686, 262144, 0, 393222, 262144, 0, 458758, 262144, 0, 524294, 262144, 0, 589830, 262144, 0, 655366, 262144, 0, 655367, 262144, 0, 589831, 262144, 0, 524295, 262144, 0, 458759, 262144, 0, 393223, 262144, 0, 327687, 262144, 0, 262151, 262144, 0, 262152, 262144, 0, 262153, 262144, 0, 262154, 262144, 0, 262155, 262144, 0, 262156, 262144, 0, 327692, 262144, 0, 327691, 262144, 0, 327690, 262144, 0, 327689, 262144, 0, 327688, 262144, 0, 393224, 262144, 0, 393225, 262144, 0, 393226, 262144, 0, 393227, 262144, 0, 393228, 262144, 0, 458764, 262144, 0, 458763, 262144, 0, 458762, 262144, 0, 458761, 262144, 0, 458760, 262144, 0, 524296, 262144, 0, 524297, 262144, 0, 524298, 262144, 0, 524299, 262144, 0, 524300, 262144, 0, 524301, 262144, 0, 589836, 262144, 0, 589835, 262144, 0, 589834, 262144, 0, 589833, 262144, 0, 589832, 262144, 0, 655368, 262144, 0, 655369, 262144, 0, 655370, 262144, 0, 655371, 262144, 0, 655372, 262144, 0)
 layer_5/name = "Objects"
-layer_5/tile_data = PackedInt32Array(262151, 65536, 17, 262153, 65536, 17, 262155, 65536, 17, 327686, 65536, 17, 327692, 65536, 17, 458758, 65536, 17, 458764, 65536, 17, 589830, 65536, 17, 589836, 65536, 17, 655367, 65536, 17, 655369, 65536, 17, 655371, 65536, 17, 655366, 327680, 48, 655372, 327680, 48, 262150, 327680, 48, 262156, 327680, 48, 393222, 131072, 41, 393228, 131072, 41, 393227, 262144, 17, 458763, 327680, 17, 17, 458752, 45)
+layer_5/tile_data = PackedInt32Array(262151, 65536, 17, 262153, 65536, 17, 262155, 65536, 17, 327686, 65536, 17, 327692, 65536, 17, 458758, 65536, 17, 458764, 65536, 17, 589830, 65536, 17, 589836, 65536, 17, 655367, 65536, 17, 655369, 65536, 17, 655371, 65536, 17, 655366, 327680, 48, 655372, 327680, 48, 262150, 327680, 48, 262156, 327680, 48, 393222, 131072, 41, 393228, 131072, 41, 393227, 262144, 17, 458763, 327680, 17, 17, 458752, 45, 262154, 196608, 17, 393223, 262144, 17, 458759, 327680, 17, 524301, 65536, 63)
 
-[node name="player" parent="." instance=ExtResource("2_oku0s")]
+[node name="Door" parent="TileMap" instance=ExtResource("2_it8uc")]
+position = Vector2(432, 272)
+disable_mode = 2
+
+[node name="bed" parent="TileMap" instance=ExtResource("2_it8uc")]
+position = Vector2(240, 208)
+disable_mode = 2
+script = ExtResource("3_66gbk")
+object_id = 0
+
+[node name="bed2" parent="TileMap" instance=ExtResource("2_it8uc")]
+position = Vector2(240, 240)
+disable_mode = 2
+script = ExtResource("3_66gbk")
+object_id = 0
+
+[node name="MaSheng" parent="TileMap" instance=ExtResource("2_it8uc")]
+position = Vector2(336, 144)
+disable_mode = 2
+script = ExtResource("3_66gbk")
+object_id = 0
+
+[node name="Player" parent="." instance=ExtResource("2_oku0s")]
 position = Vector2(300, 240)
 motion_mode = 1
 script = ExtResource("3_a24tm")
